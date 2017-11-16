@@ -1,0 +1,5 @@
+name: Confirm message
+type: module
+description: Example of confirm message after create/edit a node
+core: 8.x
+package: example

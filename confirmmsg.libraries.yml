@@ -1,0 +1,8 @@
+form:
+  version: 1.x
+  css:
+    theme:
+      css/facebox.css: {}
+  js:
+    js/facebox.js: {}
+    js/form.js: {}

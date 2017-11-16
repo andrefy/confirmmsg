@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains confirmmsg.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter() on behalf of confirmmsg.module.
+ */
+function confirmmsg_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    // Change form id here
+    if (in_array($form_id, ['node_page_edit_form', 'node_page_form'])) {
+      $form['#attached']['library'] = ['confirmmsg/form'];
+      $form['confirmation'] = [
+        '#type' => 'item',
+        '#theme' => 'confirmmsg',
+      ];
+    }
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * @see https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/function/hook_theme/8.4.x
+ */
+function confirmmsg_theme() {
+  return [
+    'confirmmsg' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
